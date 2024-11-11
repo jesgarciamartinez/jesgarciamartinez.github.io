@@ -2,9 +2,14 @@
 title: "Getting started"
 description: "Hit the ground running."
 date: "Mar 22 2024"
+draft: true
 ---
 
 The basic configuration of Nano is pretty simple.
+
+<iframe width="400" height="525" src="https://www.loom.com/embed/c841b42b200a4b44880ff538197fcdd7?sid=ee84d9fc-7b6d-4cf8-90d9-0514c31dc524&autoplay=false&hide_share=true&hideEmbedTopBar=true&hide_title=true 
+&hide_owner=true&hide_speed=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 
 Edit `src/consts.ts`
 
