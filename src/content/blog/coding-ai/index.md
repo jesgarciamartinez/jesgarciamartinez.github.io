@@ -1,7 +1,7 @@
 ---
 title: "Using AI for programming"
 description: "Notes and links on using LLMs to code"
-draft: false
+draft: true
 ---
 
 I've been trying out many new AI products, like [Cursor](https://www.cursor.com/) and [Perplexity](https://www.perplexity.ai/).
