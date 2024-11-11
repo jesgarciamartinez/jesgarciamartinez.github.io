@@ -18,11 +18,14 @@ export async function GET(context: Context) {
     title: HOME.TITLE,
     description: HOME.DESCRIPTION,
     site: context.site,
-    items: items.map((item) => ({
-      title: item.data.title,
-      description: item.data.description,
-      // pubDate: item.data.date,
-      link: `/${item.collection}/${item.slug}/`,
-    })),
+    items: items.map(
+      (item) =>
+        ({
+          title: item.data.title,
+          description: item.data.description,
+          // pubDate: item.data.date,
+          link: `/${item.collection}/${item.slug}/`,
+        } as any),
+    ),
   })
 }
