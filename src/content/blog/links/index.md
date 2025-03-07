@@ -9,8 +9,8 @@ Some of my favorite resources from around the web. Unordered for now, will split
 ### Blogs and articles
 
 - [Matklad](https://matklad.github.io/)
-    - lots of good stuff, some Rust-specific, but also other wide-ranging topics, and short-and-sweet software design
-        nuggets like [this](https://matklad.github.io/2023/11/15/push-ifs-up-and-fors-down.html) and [this](https://matklad.github.io/2023/09/13/comparative-analysis.html)]
+    - lots of great stuff, some Rust-specific, but also other wide-ranging topics, and short-and-sweet software design
+        nuggets like [this](https://matklad.github.io/2023/11/15/push-ifs-up-and-fors-down.html) and [this](https://matklad.github.io/2023/09/13/comparative-analysis.html)
 - [Jamie Brandon](https://www.scattered-thoughts.net/)
     - His [Reflections on a decade of coding](https://www.scattered-thoughts.net/writing/reflections-on-a-decade-of-coding/) resonated strongly with me, in particular the [advice on coding](https://www.scattered-thoughts.net/writing/coding/) and the focus on "what do I want the machine to do".
     - He also runs [HYTRADBOI](https://www.hytradboi.com/), a cool online conference filled with great short talks.

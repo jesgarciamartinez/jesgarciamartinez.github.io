@@ -10,15 +10,15 @@ You can choose to have it listen to all apps, just the browser, or include/exclu
 
 <!-- While the extension is not yet approved by the app store, you can play with a demo here (it does not listen to your clipboard): -->
 
-Here are some UX details that hopefully make for a quick, frictionless experience:
+Here are some UX details intended for a quick, frictionless experience:
 
 - Entries are sorted by recency, with new entries appearing at the bottom, like a chat application.
 This way you can copy several fragments of a text, and they will all appear one after the other in the order you copied them.
-You can then quicky select several entries by dragging with the mouse, and copy them to your clipboard.
+You can then quicky select several entries by dragging with the mouse, and copy them to your clipboard
 
 <iframe width="400" height="525" src="https://www.loom.com/embed/82a0790f167e47e2b394ec6390a3acdf?sid=9e32c086-4648-4b45-9678-0452fa0b1e93&autoplay=false&hide_share=true&hideEmbedTopBar=true&hide_title=true&hide_owner=true&hide_speed=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="margin: 0 auto;"></iframe>
 
-- Clicking on one entry will paste it in the current webpage. You can paste one or several entries, separated by newlines.
+- Clicking on one entry will paste it in the current webpage. You can paste one or several entries, separated by newlines
 
 - The extension is fully keyboard-driven:
     - You activate it with a shortcut (defaults to `cmd|ctrl+alt+v`)
@@ -27,10 +27,10 @@ You can then quicky select several entries by dragging with the mouse, and copy 
 
 - You can pin entries to always show them on top
 
-- You can edit entries, and add a text-expander shortcut like '/greet', so that when you type the shortcut the full text is pasted instead.
+- You can edit entries, and add a text-expander shortcut like '/greet', so that when you type the shortcut the full text is pasted instead
 
 
-- you can choose to place the extension UI as a popup or in the chrome sidebar
+- You can choose to place the extension UI as a popup or in the chrome sidebar
 <iframe width="400" height="525" src="https://www.loom.com/embed/251cecd99c074401a553f7472fb559be?sid=a1d2e1c0-a4b6-41ea-bff3-f66dc3d9146e&autoplay=false&hide_share=true&hideEmbedTopBar=true&hide_title=true&hide_owner=true&hide_speed=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="margin: 0 auto;"></iframe>
 
 

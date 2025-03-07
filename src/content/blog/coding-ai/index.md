@@ -5,20 +5,44 @@ draft: true
 ---
 
 I've been trying out many new AI products, like [Cursor](https://www.cursor.com/) and [Perplexity](https://www.perplexity.ai/).
-
 This is my loose collection of notes and links about AI tools, specifically for software development.
 
 ## Multiple partially-applied prompts
 
 LLMs are a powerful, open-ended tool, but also a bit of a black box.
 I sometimes don't realize I can have AI do a particular task, and I have to consciously remind myself to try.
-> going back to my old ways
- 
 
-I also have shortcuts for enabling / disabling autocompletion (there really should be a `toggle` command for this).
+Aside: I'm also frequently annoyed at the autocomplete functionality as I'm typing - so I set shortcuts for enabling / disabling autocompletion (there really should be a `toggle` command for this).
+
+One way to enhance discoverability of the AI features would be pre-written prompts, as examples of what you can do
+Generalizing, this is really a scripting
 
 
-I think a lot of AI products boil down to
+Making software is about going from idea to design to implementation, and AI can help at each stage.
+
+Go up a level - Treat codebase explicitly as graph - specify shape of changes (eg for this prompt I expect this changes to be added, this fn to be modified)
+did not do it till now cause always human, went and manually modified the codebase with an editor, but if we want to produce 10x more code: lets always modify through a 'structured API'
+so in a way the codebase is a datastructure - you can have fns that modify it, be it with regular code (codemods) and AI is just one of them
+---
+you also need programmability at the IDE level, to build scripts that integrate these AI fns () to modify the codebase itself
+ai_fn: (string) => code or code_modification
+need a language for these code_modification or code_changes - we'll talk a lot more about getting from codebase to codebase' 
+Editor should be able to tell you what the changes are (even if it's by checking its own generated code through regular parsing)
+
+you should be able to select the result of a prompt: design | invariant | code_modification | new_code
+
+Because AI actually builds the thing (no inversion of control), you need then to take a predicative approach (w types/contracts) to substract from the state all that's wrong
+
+- Idea -> Design
+    - helps conversationally to come up with invariants, types etc
+    - these invariants can be crowdsourced per application type
+        - it seems inversion of control should be useful (eg have an app type, like 'game engine' where you can only do certain things, and the base code is assumed correct), but invariants etc allow you to do direct code, because you have all the invariants/tests to keep you
+    - you can diff a design (either you also operate with deltas at the design level, or diff new design from old) - ie adding this feature -> how does this translate to code - e.g. this fn adds a new effect type
+- Design -> Implementation
+    - since static analysis is limited languages/frameworks that can give guarantees on execution should do well (ZIO etc)
+
+a prompt should return
+
 
 In my mind, I call this the "Ramesh button", after the scene in *Margin Call* where, during a meeting, the boss just says "Ramesh" – the name of the legal head of the company – for him to give his input on the situation.
 
@@ -30,7 +54,6 @@ And once you have that button, you can program it:
 - take a page from NASA, etc
     - ways to map design to specific lines of code
     - also relates to inversion of control
-
 
 ## tools
 
@@ -57,10 +80,14 @@ And once you have that button, you can program it:
     - > The sweet spot of the current LLMs (not whatever the next gen might or might not improve on) for me is similar to suddenly having an army of idiots at my fingertips. There are a lot of smallish tasks/problems people/systems needs to deal with, some of them even waste notable real engineering capacity, and a highschooler could do manually quite easily by hand. Example: find out if a text contains an email address, including all kinds of shenanigans people do to mask it (may not be allowd, ... whatever). From a purely coding standpoint, this is a cats-and-mouse game of improving regex solutions in many cases to also find the more sophisticated patterns, but there will always be uncatched/new ways or simply errors that produce false positives. But a highschooler can be given a text and instantly spot the email address (or confirm none is in there). In order to "solve" these types of small problems, LLMs are pretty much fantastic. It needs to only be reliable enough to produce a structured answer within a few attempts and cheap enough to not be a concern for finance/operations. Thats why for me it makes absolutely sense that the #1 priority for OpenAI since GPT4 has been building smaller/faster/cheaper models. Automators need exactly that, not genius-level AGI.
 
 - [How I code 159% Faster using AI (Cursor + Sonnet 3.5) - YouTube](https://www.youtube.com/watch?v=yk9lXobJ95E)
-    - [prompts/LearnToCode.md at main · VoloBuilds/prompts](https://github.com/VoloBuilds/prompts/blob/main/LearnToCode.md)
+- [prompts/LearnToCode.md at main · VoloBuilds/prompts](https://github.com/VoloBuilds/prompts/blob/main/LearnToCode.md)
 - [anthropics/anthropic-cookbook: A collection of notebooks/recipes showcasing some fun and effective ways of using Claude.](https://github.com/anthropics/anthropic-cookbook/tree/main)
+- [OpenAI is good at unminifying code | Hacker News](https://news.ycombinator.com/item?id=41389185&utm_term=comment)
+    - LLMs are excellent at text transformation. It's their core strength and I don't see it being used enough.
+    - Author of HumanifyJS here! I've created specifically a LLM based tool for this, which uses LLMs on AST level to guarantee that the code keeps working after the unminification step:
+    https://github.com/jehna/humanify
 
-- given a piece of code
+<!-- - given a piece of code
     - translate to another lang
     - minor modifications (casing)
     - questions
@@ -73,7 +100,7 @@ And once you have that button, you can program it:
     - pseudocode
 
 - help come up with the design
-    - ask followup questions
+    - ask followup questions -->
 
 programmers often jump to implementation, figure out design as they go
 
@@ -86,18 +113,16 @@ programmers often jump to implementation, figure out design as they go
         - sql
         - categorization
 
-
 ---
 
 Thoughts on codegen ai products
     - AI is good at 
         - tailwind, react
-        - things together for context (eg tailwind)
-            - but also, stuff like alpine is good for humans (see everything at once),
+        - things together for context (eg Tailwind)
+            - but also, stuff like Tailwind or Alpine is good for humans (see everything at once),
               for AIs we can statically analyze which css/js corresponds to which html and send
               them that
-        - it seem code should be either raw html or react (most popular framework)
-            - 
+        - it seems code should be either raw html or react (most popular framework)
     - How to ensure correctness - AI generates lots of code, need to be able to read quickly
         - types
         - assertions - can ask AI to come up with invariants
@@ -133,17 +158,14 @@ Thoughts on codegen ai products
 
 #### Cursor
 
-@ in chat
-
 - [Coding with Cursor: Session 1 - YouTube](https://www.youtube.com/watch?v=1CC88QGQiEA&t=7175s)
-    - no product should just wrap one prompt
+    <!-- - no product should just wrap one prompt
         - but 100s of prompts?
     - every product needs to be a compound product
     - no staging env - if prod is broken, fix it
     - autocommit
-    - see 2:53
-
-    - brand is design
+    - see 2:53 -->
+    <!-- - brand is design -->
 
 - [Coding with Cursor: Session 4](https://www.youtube.com/watch?v=42zmF9ARSWM)
     - composer to brainstorm - not saved, chat to iterate
@@ -163,10 +185,7 @@ Thoughts on codegen ai products
 - [Jason Zhou on X: "How to 10x your @cursor\_ai workflow? Many people struggle to get Cursor produce error free projects Here is my workflow to rebuild a $1 million micros Sass with ease: 1. O1 to prep doc with file tree & dependencies 2. Use @cursor\_ai for functionality & @v0 for UI touch up 3. https://t.co/8VRZbgPtZD" / X](https://x.com/jasonzhou1993/status/1841462021344378955)
 
 
-- [OpenAI is good at unminifying code | Hacker News](https://news.ycombinator.com/item?id=41389185&utm_term=comment)
-    - LLMs are excellent at text transformation. It's their core strength and I don't see it being used enough.
-    - Author of HumanifyJS here! I've created specifically a LLM based tool for this, which uses LLMs on AST level to guarantee that the code keeps working after the unminification step:
-    https://github.com/jehna/humanify
+
 
 
 ### prompts
